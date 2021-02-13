@@ -4,8 +4,11 @@ using System.Text;
 
 namespace ExampleOpenClosedPrinciple
 {
-    public abstract class Fruit
+    public class Banana : Fruit
     {
-        public abstract double GetPrice();
+        public override double GetPrice()
+        {
+            return 3.25;
+        }
     }
 }

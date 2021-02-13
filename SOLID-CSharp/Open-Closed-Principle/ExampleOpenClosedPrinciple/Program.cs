@@ -8,9 +8,9 @@ namespace ExampleOpenClosedPrinciple
         {
             Fruit[] Fruits =
             {
-                new Fruit("oranges"),
-                new Fruit("bananas"),
-                new Fruit("strawberrys")
+                new Orange(),
+                new Strawberry(),
+                new Banana()
             };
             PrintFruitsPrice(Fruits);
         }
@@ -19,9 +19,7 @@ namespace ExampleOpenClosedPrinciple
         {
             foreach(var fruit in Fruits)
             {
-                if (fruit.GetFruitType() == "oranges") Console.WriteLine(1.2);
-                if (fruit.GetFruitType() == "bananas") Console.WriteLine(0.85);
-                if (fruit.GetFruitType() == "strawberrys") Console.WriteLine(2);
+                Console.WriteLine(fruit.GetPrice());
             }
         }
     }
