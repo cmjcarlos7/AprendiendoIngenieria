@@ -7,24 +7,27 @@ namespace ExampleInterfaceSegregationPrinciple
         static void Main(string[] args)
         {
             Swimmer swimmer = new Swimmer();
-            swimmer.Run(5);
+            swimmer.Swing(5);
         }
     }
 
     public interface IAthlete
     {
         void WarmUp(int time);
-        void Run(int time);
+    }
+
+    public interface ISwimmable
+    {
         void Swing(int time);
     }
 
-    class Swimmer : IAthlete
+    public interface IRunable
     {
-        public void Run(int time)
-        {
-            throw new NotImplementedException();
-        }
+        void Run(int time);
+    }
 
+    class Swimmer : IAthlete, ISwimmable
+    {
         public void Swing(int time)
         {
             // Proccess to Swing ...
