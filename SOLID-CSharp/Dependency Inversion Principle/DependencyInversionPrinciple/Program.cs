@@ -10,8 +10,19 @@ namespace DependencyInversionPrinciple
         }
     }
 
+    interface IDataBaseService
+    {
+        public void GetData();
+    }
+    class MySQLDataBaseService : IDataBaseService
+    {
+        public void GetData()
+        {
+            // Get data from database.
+        }
+    }
 
-    class MySQLDataBaseService
+    class SQLServerDataBaseService : IDataBaseService
     {
         public void GetData()
         {
@@ -21,16 +32,16 @@ namespace DependencyInversionPrinciple
 
     class DataAccess
     {
-        private MySQLDataBaseService MySQLDataBaseService;
+        private IDataBaseService DataBaseService;
 
-        public DataAccess()
+        public DataAccess(IDataBaseService dataBaseService)
         {
-            MySQLDataBaseService = new MySQLDataBaseService();
+            DataBaseService = dataBaseService;
         }
 
         public void GetData()
         {
-            MySQLDataBaseService.GetData();
+            DataBaseService.GetData();
             // ...
         }
     }
